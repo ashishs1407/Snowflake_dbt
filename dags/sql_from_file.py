@@ -3,13 +3,6 @@ from datetime import datetime, timedelta
 from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
 from airflow.operators.email import EmailOperator
 
-SNOWFLAKE_CONN_ID = 'snowflake_conn'
-SNOWFLAKE_DATABASE = 'MY_DB'
-SNOWFLAKE_SCHEMA = 'MY_SCHEMA'
-SNOWFLAKE_WAREHOUSE= 'COMPUTE_WH'
-SNOWFLAKE_ROLE = 'SYSADMIN'
-SNOWFLAKE_TABLE= 'CUSTOMERS'
-AWS_FILE_PATH = 's3://dbt-tutorial-public/jaffle_shop_customers.csv'
 
 
 default_args = {
@@ -23,9 +16,10 @@ default_args = {
 
 dag = DAG('send_data_to_snowflake_docker',
           default_args=default_args,
-          schedule_interval=timedelta(days=1),
+          schedule='@daily',
           template_searchpath=['/opt/airflow/sql_script'],
-          catchup=False)
+          #catchup=False
+          )
 
 
 

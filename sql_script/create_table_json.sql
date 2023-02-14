@@ -1,0 +1,1 @@
+create or replace  table temp_test (json_data  variant);

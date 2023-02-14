@@ -1,0 +1,1 @@
+put file:///opt/airflow/data/data.json @json_temp_int_stage;
