@@ -1,0 +1,1 @@
+PUT file:///opt/airflow/data/TSLA.parquet @par_stage;
