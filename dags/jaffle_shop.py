@@ -6,7 +6,9 @@ from airflow.utils.task_group import TaskGroup
 from airflow.operators.email import EmailOperator
 from airflow.operators.python import PythonOperator
 from airflow.operators.empty import EmptyOperator
+from airflow.operators.bash import BashOperator
 from data_transform import read_json_file
+
 
 default_args = {
     'owner': 'Airflow',
@@ -51,7 +53,10 @@ with DAG('jaffle_shop',
         insert_payment_data = SnowflakeOperator(task_id='insert_payment_data',
             sql = 'insert_payment.sql',
             snowflake_conn_id='snowflake_conn')
+    
 
+    
+    
     end = EmptyOperator(task_id='END')
 
     start >> create_tables >> insert_data >> end
