@@ -46,13 +46,14 @@ x-airflow-common:
     AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
-    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__FERNET_KEY: gZV0G6fnfe2zl4k785PIDNNcrQb1REsx2Oc_umnlsys=
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-snowflake yfinance apache-airflow-providers-dbt-cloud apache-airflow-providers-dbt-cloud[http] pyarrow==10.0.1 snowflake-connector-python}
+    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-snowflake yfinance apache-airflow-providers-dbt-cloud apache-airflow-providers-dbt-cloud[http] pyarrow==10.0.1 snowflake-connector-python crypto}
     
   volumes:
+    - ./airflow.cfg:/opt/airflow/airflow.cfg
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./sql_script:/opt/airflow/sql_script
