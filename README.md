@@ -16,7 +16,7 @@ type
 # OR execute this line
  docker exec -it snowflake_dbt-postgres-1 psql -d airflow -U airflow -c "SELECT * FROM connection WHERE conn_id='snowflake_conn'"
 
- # python script to generate fernet key
+ # python script to generate fernet key run this script in webserver container
  python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
 
  # it will generate a key like this
@@ -26,3 +26,7 @@ type
  docker compose  -f "docker-compose.yaml" up -d --build airflow-webserver
  or
  docker compose -f docker-compose.yaml restart airflow-webserver
+
+ # Backfill 
+ enter the container \n
+ airflow backfill -s <start date yyyy-mm-dd> -e <yyyy-mm-dd> --rerun_failed_tasks -B backfill

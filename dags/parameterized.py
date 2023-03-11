@@ -1,6 +1,7 @@
 
 from airflow import DAG
 from datetime import datetime, timedelta
+from airflow.models import Variable
 from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
 from airflow.utils.task_group import TaskGroup
 from airflow.operators.email import EmailOperator
@@ -23,7 +24,6 @@ default_args = {
 with DAG('parameterized',
           default_args=default_args,
           schedule_interval=timedelta(days=1),
-          template_searchpath=['/opt/airflow/sql_script/jaffle_sql'],
           catchup=False
     ) as dag:
 
