@@ -32,9 +32,6 @@ def _choose_best_model(ti):
 
     print(f'choose best model is : {modelx} with accuracy of {largest}')        
 
-        
-
-    
     
 
 with DAG('xcom_dag', schedule_interval='@daily', default_args=default_args, catchup=False) as dag:
