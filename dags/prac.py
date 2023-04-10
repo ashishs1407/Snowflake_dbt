@@ -32,4 +32,4 @@ with DAG('prac',
      
     end =  EmptyOperator(task_id='End')
 
-    start >> task1 >> task2 >> end
+    start >> task1 >> task2 >> end.
