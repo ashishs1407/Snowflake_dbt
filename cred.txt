@@ -1,2 +1,3 @@
 user_id = "adgashdghjf"
 pass = "dahdgfsjdkf"
+aws_id ="hdgsqhdq"
