@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 logs/scheduler/latest
 
-./cred.txt
-./cred1.txt
+cred.txt
+cred1.txt
