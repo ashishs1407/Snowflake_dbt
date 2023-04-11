@@ -130,3 +130,5 @@ dmypy.json
 logs/scheduler/latest
 
 test1.py
+
+app/
