@@ -25,7 +25,7 @@ with DAG('stock_api_data_to_snowflake',
           catchup=False
     ) as dag:
 
-    start = EmptyOperator(task_id='Start')
+    start = EmptyOperator(task_id='Start')  # dummyoperator 
 
     with TaskGroup('pull_data_and_save') as pull_data_and_save :
 
